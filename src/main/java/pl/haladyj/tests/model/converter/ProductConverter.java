@@ -2,6 +2,7 @@ package pl.haladyj.tests.model.converter;
 
 import org.springframework.stereotype.Component;
 import pl.haladyj.tests.model.Product;
+import pl.haladyj.tests.service.dto.ProductCounterDto;
 import pl.haladyj.tests.service.dto.ProductDto;
 
 @Component
@@ -26,5 +27,13 @@ public class ProductConverter implements Converter<Product, ProductDto> {
         productDto.setType(product.getProductType());
         productDto.setClickCounter(product.getClickCounter());
         return productDto;
+    }
+
+    public ProductCounterDto toCounterDto(Product product) {
+
+        ProductCounterDto productCounterDto = new ProductCounterDto();
+        productCounterDto.setClickCounter(product.getClickCounter());
+
+        return productCounterDto;
     }
 }
