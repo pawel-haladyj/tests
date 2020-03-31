@@ -8,6 +8,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+import pl.haladyj.tests.model.Product;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,22 +22,22 @@ public class Product {
     private Long id;
 
     @NotNull
-    @Column(name="name", nullable = false)
+    @Column(name = "product_name", nullable = false)
     private String name;
 
     @NotNull
-    @Column(name="description", nullable = false)
+    @Column(name = "description", nullable = false)
     private String description;
 
     @NotNull
-    @Column(name="product_type", nullable = false)
+    @Column(name = "type", nullable = false)
     private ProductType productType;
 
     @NotNull
-    @Column(name="price", nullable = false)
+    @Column(name = "price", nullable = false)
     private BigDecimal price;
 
     @NotNull
-    @Column(name="click_counter", nullable = false)
+    @Column(name = "click_counter", nullable = false)
     private Long clickCounter;
 }

@@ -36,10 +36,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Optional<ProductDto> findProductById(Long id) {
 
-        checkArgument(nonNull(id), "Expected non null id");
+        checkArgument(nonNull(id), "Expected non-null id");
 
         return repository
-                .findProductById(id)
+                .findById(id)
                 .map(product -> {
                     product.setClickCounter(counter.updateCounter(product));
                     product = repository.save(product);
@@ -55,7 +55,7 @@ public class ProductServiceImpl implements ProductService {
 
         checkArgument(nonNull(id), "Expected non null id");
         return repository
-                .findProductById(id)
+                .findById(id)
                 .map(converter::toCounterDto);
     }
 }
